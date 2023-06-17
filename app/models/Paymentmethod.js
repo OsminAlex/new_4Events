@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       payment_methods: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: {
             args: [2, 255],
@@ -30,10 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  PaymentMethod.associate = (models) => {
+  PaymentMethod.associate = function (models) {
     PaymentMethod.hasMany(models.Events, {
       as: "Events",
-      foreignkey: "payment_method_Id",
+      foreignKey: "payment_method_Id",
     });
   };
 

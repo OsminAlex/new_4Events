@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       categories: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: {
             args: [2, 255],
@@ -30,8 +31,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Category.associate = (models) => {
-    Category.hasMany(models.Events, { as: "Events", foreignkey: "categoryId" });
+  Category.associate = function (models) {
+    Category.hasMany(models.Events, { as: "Events", foreignKey: "categoryId" });
   };
 
   return Category;

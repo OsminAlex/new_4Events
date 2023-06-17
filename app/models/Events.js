@@ -80,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "categoryId",
     });
     Events.belongsTo(models.PaymentMethod, {
-      as: "payment_method",
+      as: "paymentmethod",
       foreignKey: "payment_method_Id",
     });
   };

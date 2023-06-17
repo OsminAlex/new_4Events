@@ -23,6 +23,8 @@ module.exports = {
               endtime: "22:00",
               startday: "2023-06-20",
               endday: "2023-06-20",
+              categoryId: 1,
+              payment_method_Id: 1,
             },
           ],
         },
@@ -45,6 +47,8 @@ module.exports = {
               endtime: "22:00",
               startday: "2023-07-11",
               endday: "2023-07-11",
+              categoryId: 1,
+              payment_method_Id: 1,
             },
           ],
         },
@@ -59,6 +63,8 @@ module.exports = {
     return Promise.all([
       queryInterface.bulkDelete("Events", null, {}),
       queryInterface.bulkDelete("User", null, {}),
+      queryInterface.bulkDelete("Category", null, {}),
+      queryInterface.bulkDelete("PaymentMethod", null, {}),
     ]);
   },
 };

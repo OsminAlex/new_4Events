@@ -45,11 +45,26 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-
       userId: {
         type: Sequelize.INTEGER,
         references: {
           model: "User",
+          keys: "id",
+        },
+        onDelete: "CASCADE",
+      },
+      categoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Category",
+          keys: "id",
+        },
+        onDelete: "CASCADE",
+      },
+      payment_method_Id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "PaymentMethod",
           keys: "id",
         },
         onDelete: "CASCADE",
