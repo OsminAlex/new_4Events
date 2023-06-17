@@ -20,7 +20,37 @@ const getEvent = async (req, res) => {
   res.json(req.event);
 };
 
-const createEvent = async (req, res) => {};
+const createEvent = async (req, res) => {
+  let newEvent = req.body;
+  let requiredFields = [
+    "tittle",
+    "description",
+    "location",
+    "starttime",
+    "endtime",
+    "startday",
+    "endday",
+    "categoryId",
+    "payment_method_Id",
+    "userId",
+  ];
+
+  requiredFields.forEach((field) => {
+    if (newEvent[field] === undefined) {
+      res.status(500).json({ message: `${[field]} is required` });
+    }
+  });
+
+  try {
+    const createEvent = await Events.create(newEvent);
+    res.status(201).json(createEvent);
+  } catch (error) {
+    console.error("Error: ", error);
+    return res
+      .status(500)
+      .json({ message: "Ocurrio un error al procesar la solicitud" });
+  }
+};
 
 //Update
 

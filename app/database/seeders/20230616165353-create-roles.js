@@ -31,6 +31,18 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          user_id: 3,
+          role_id: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          user_id: 4,
+          role_id: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ]),
     ]);
   },

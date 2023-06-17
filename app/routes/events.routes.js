@@ -19,7 +19,7 @@ module.exports.EventsAPI = (app) => {
       eventPermission.getEvent,
       eventController.getEvent
     )
-    .post("/", auth, eventController.find, eventController.createEvent)
+    .post("/", auth, eventController.createEvent)
     .put(
       "/:id",
       auth,
